@@ -84,10 +84,11 @@ fn main() {
 
     for step in 0..1000 {
         universe.step();
-        let earth = &universe.bodies[1];
-        println!(
-            "Step {:4} Earth -> pos=({:.2e}, {:.2e}), vel=({:.2e}, {:.2e})",
-            step, earth.pos[0], earth.pos[1], earth.vel[0], earth.vel[1]
-        );
+        for (i, body) in universe.bodies.iter().enumerate() {
+            println!(
+                "Step {:4} Body {} -> pos=({:.2e}, {:.2e}), vel=({:.2e}, {:.2e})",
+                step, i, body.pos[0], body.pos[1], body.vel[0], body.vel[1]
+            );
+        }
     }
 }
